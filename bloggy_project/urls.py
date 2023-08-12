@@ -20,7 +20,8 @@ from django.views.static import serve
 from django.conf import settings
 
 urlpatterns = [
+    path("", include("mainpage.urls")),
     path("admin/", admin.site.urls),
-    path('blog/', include('blog.urls')),
-    path('media/<path:path>/', serve, {'document_root': settings.MEDIA_ROOT}),
+    path("blog/", include("blog.urls")),
+    path("media/<path:path>/", serve, {"document_root": settings.MEDIA_ROOT}),
 ]
